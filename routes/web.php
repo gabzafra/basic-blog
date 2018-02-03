@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'BlogController@index');
+
+Route::get('/post/new', 'BlogController@newPost')->name('newPost');
+Route::post('/post/new', 'BlogController@createPost')->name('createPost');
+
+Route::get('/post/{id}', 'BlogController@viewPost')->name('viewPost');
+Route::post('/post/{id}/comment', 'BlogController@createComment')->name('createComment');
